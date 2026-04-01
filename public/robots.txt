@@ -1,0 +1,43 @@
+# robots.txt para analauramoratelli.com.br
+
+# Permitir acesso para todos os robôs de busca
+User-agent: *
+Allow: /
+
+# Bloquear acesso a arquivos e diretórios específicos
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.git/
+Disallow: /dist/
+Disallow: /build/
+Disallow: /.env
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /tsconfig.json
+Disallow: /vite.config.ts
+Disallow: /eslint.config.js
+
+# Permitir especificamente arquivos importantes
+Allow: /favicon.ico
+Allow: /robots.txt
+Allow: /sitemap.xml
+Allow: /assets/
+
+# Especificar localização do sitemap
+Sitemap: https://analauramoratelli.com.br/sitemap.xml
+
+# Configurações específicas para diferentes bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Crawl-delay para evitar sobrecarga
+Crawl-delay: 1

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Redirecting...</title>
+	<script>
+		// Redireciona rotas desconhecidas para o index em apps SPA
+		(function () {
+			var l = window.location;
+			var isGithubIoHost = l.hostname.endsWith('.github.io');
+			var pathSegmentsToKeep = isGithubIoHost ? 1 : 0;
+			var prefix = l.pathname.split('/').slice(0, pathSegmentsToKeep + 1).join('/');
+			var normalizedPrefix = prefix.endsWith('/') ? prefix.slice(0, -1) : prefix;
+
+			var routePath = l.pathname.slice(normalizedPrefix.length + 1).replace(/&/g, '~and~');
+			var query = l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '';
+
+			l.replace(
+				l.protocol +
+				'//' +
+				l.hostname +
+				(l.port ? ':' + l.port : '') +
+				(normalizedPrefix ? normalizedPrefix + '/' : '/') +
+				'?/' +
+				routePath +
+				query +
+				l.hash,
+			);
+		})();
+	</script>
+</head>
+
+<body></body>
+
+</html>
