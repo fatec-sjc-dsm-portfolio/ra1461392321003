@@ -7,37 +7,40 @@ Esse é meu portfólio que foi desenvolvido na aula de design digital com o prin
 </div>
 <h2>💻 Tecnologias utilizadas: </h2>
 
-<div align="center">
-    <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white&color=6DA2FF" />
-    <img src="https://img.shields.io/badge/HTML5-239120?style=for-the-badge&logo=html5&logoColor=white&color=6DA2FF" />
-    <img src="https://img.shields.io/badge/CSS3-239120?&style=for-the-badge&logo=css3&logoColor=white&color=6DA2FF" />
-    <img src="https://img.shields.io/badge/react-4A154B?style=for-the-badge&logo=react&logoColor=white&color=6DA2FF" />
-    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white&color=6DA2FF" />
-    <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white&color=6DA2FF" />
-    <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white&color=6DA2FF"/>
-    
-    
+<div>
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" width="40"/><br/>
+      <sub>Figma</sub>
+    </td>
+    <td align="center">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="40"/><br/>
+      <sub>HTML</sub>
+    </td>
+    <td align="center">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="40"/><br/>
+      <sub>CSS</sub>
+    </td>
+    <td align="center">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="40"/><br/>
+      <sub>React</sub>
+    </td>
+    <td align="center">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="40"/><br/>
+      <sub>TypeScript</sub>
+    </td>
+    <td align="center">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg" width="40"/><br/>
+      <sub>Vite</sub>
+    </td>
+  </tr>
+</table>
+
 </div>
 <h2>📱 Acesse:</h2>
-https://analauramoratelli.com.br/
+https://fatec-sjc-dsm-portfolio.github.io/ra1461392321003/
 
-<h2>🛠️ Como executar:</h2>
-
-  <h3>Passo 1: Certifique-se de ter o Git e o Node instalados.</h3>
-    <p>Para baixar o Git, acesse <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>.</p>
-    <p>Para baixar o Node, acesse <a href="https://nodejs.org/">https://nodejs.org/</a>.</p>
-
-  <h3>Passo 2: Abra o Terminal</h3>
-  <p>Pesquise por "Terminal" na barra de tarefas do seu dispositivo e abra o terminal.</p>
-
-  <h3>Passo 3: Clone o Repositório</h3>
-  <pre><code>git clone https://github.com/Ana-Laura-Moratelli/portfolio</code></pre>
-
-  <h3>Passo 4: Instale as Dependências </h3>
-  <pre><code>npm install</code></pre>
-
-  <h3>Passo 5: Inicie a aplicação</h3>
-  <pre><code>npm run dev</code></pre>
- 
 
 
