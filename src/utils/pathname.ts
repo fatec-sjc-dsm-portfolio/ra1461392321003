@@ -1,23 +1,14 @@
-const baseUrl = import.meta.env.BASE_URL
-
-export function getNormalizedPathname(pathname: string) {
-  if (!pathname) {
-    return '/'
+export function getNormalizedPathname(pathname: string): string {
+  // Remove trailing slashes and ensure it starts with /
+  let normalized = pathname.trim();
+  
+  if (!normalized.startsWith('/')) {
+    normalized = '/' + normalized;
   }
-
-  if (!baseUrl || baseUrl === '/') {
-    return pathname
+  
+  if (normalized.length > 1 && normalized.endsWith('/')) {
+    normalized = normalized.slice(0, -1);
   }
-
-  const normalizedBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
-
-  if (pathname === normalizedBase || pathname === `${normalizedBase}/`) {
-    return '/'
-  }
-
-  if (pathname.startsWith(`${normalizedBase}/`)) {
-    return pathname.slice(normalizedBase.length)
-  }
-
-  return pathname
+  
+  return normalized;
 }
