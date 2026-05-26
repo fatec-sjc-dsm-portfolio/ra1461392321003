@@ -10,15 +10,13 @@ export default function About() {
         <div className="about-content">
           <div className="about-text">
             <p>
-              Sou Desenvolvedora Front-end, apaixonada por criar experiências digitais incríveis e funcionais. Tenho 20
-              anos e estou sempre em busca de novos desafios e oportunidades para crescer profissionalmente.
+              Sou Desenvolvedora Full Stack, apaixonada por criar experiências digitais modernas, funcionais e intuitivas. Tenho 20 anos e estou sempre em busca de novos desafios, aprendizados e oportunidades para evoluir profissionalmente na área de tecnologia.
             </p>
             <p>
-Minha trajetória na tecnologia começou pela eletrônica, que despertou meu interesse por lógica e resolução de problemas. Essa experiência me deu a base que hoje aplico no desenvolvimento de software, unindo técnica e criatividade no dia a dia.            </p>
+              Minha trajetória começou pela eletrônica, experiência que despertou meu interesse por lógica, resolução de problemas e inovação. Essa base técnica contribuiu diretamente para minha atuação no desenvolvimento de software, permitindo unir criatividade, análise e visão estratégica na construção de soluções.
+            </p>
             <p>
-              Atualmente, foco no desenvolvimento Front-end, criando interfaces intuitivas e responsivas que oferecem uma
-              excelente experiência ao usuário. Estou sempre aprendendo novas tecnologias e melhores práticas para
-              entregar soluções de qualidade.
+              Atualmente, atuo no desenvolvimento de aplicações web modernas, com foco tanto em Front-end quanto em Back-end. Tenho experiência na criação de interfaces responsivas e intuitivas, além do desenvolvimento de APIs, integrações, bancos de dados e arquiteturas modernas utilizando tecnologias como React, TypeScript, Node.js e Python.
             </p>
           </div>
 

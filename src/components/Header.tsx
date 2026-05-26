@@ -16,6 +16,7 @@ export default function Header({ activeSection }: HeaderProps) {
     { id: "projects", label: "Projetos" },
     { id: "skills", label: "Habilidades" },
     { id: "education", label: "Formação" },
+    { id: "hobbies", label: "Hobbies" },
     { id: "contact", label: "Contato" },
   ]
 

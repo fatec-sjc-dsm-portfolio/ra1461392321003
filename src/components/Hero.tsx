@@ -11,7 +11,7 @@ export default function Hero() {
                             <span>👋 Olá, eu sou</span>
                         </div>
                         <h1 className="hero-title">Ana Laura Moratelli</h1>
-                        <h2 className="hero-subtitle">Desenvolvedora Front-end</h2>
+                        <h2 className="hero-subtitle">Desenvolvedora Full Stack</h2>
                         <p className="hero-description">
                             Tenho 21 anos e sou apaixonada por desenvolvimento de software. Este é meu portfólio, onde você encontra
                             minhas informações de contato, um pouco sobre mim e projetos realizados durante minha jornada na faculdade

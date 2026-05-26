@@ -1,270 +1,78 @@
-import { useState } from "react"
-
-// Lista de países com DDI e máscaras
-const countries = [
-    { code: 'BR', name: 'Brasil', dial: '+55', flag: '🇧🇷', mask: '(##) #####-####', placeholder: '(11) 99999-9999' },
-    { code: 'US', name: 'Estados Unidos', dial: '+1', flag: '🇺🇸', mask: '(###) ###-####', placeholder: '(555) 123-4567' },
-    { code: 'AR', name: 'Argentina', dial: '+54', flag: '🇦🇷', mask: '## ####-####', placeholder: '11 1234-5678' },
-    { code: 'CL', name: 'Chile', dial: '+56', flag: '🇨🇱', mask: '# #### ####', placeholder: '9 1234 5678' },
-    { code: 'CO', name: 'Colômbia', dial: '+57', flag: '🇨🇴', mask: '### ### ####', placeholder: '321 123 4567' },
-    { code: 'MX', name: 'México', dial: '+52', flag: '🇲🇽', mask: '## #### ####', placeholder: '55 1234 5678' },
-    { code: 'PE', name: 'Peru', dial: '+51', flag: '🇵🇪', mask: '### ### ###', placeholder: '987 654 321' },
-    { code: 'UY', name: 'Uruguai', dial: '+598', flag: '🇺🇾', mask: '#### ####', placeholder: '9876 5432' },
-    { code: 'PY', name: 'Paraguai', dial: '+595', flag: '🇵🇾', mask: '### ### ###', placeholder: '985 123 456' },
-    { code: 'BO', name: 'Bolívia', dial: '+591', flag: '🇧🇴', mask: '#### ####', placeholder: '7123 4567' },
-    { code: 'EC', name: 'Equador', dial: '+593', flag: '🇪🇨', mask: '## ### ####', placeholder: '99 123 4567' },
-    { code: 'VE', name: 'Venezuela', dial: '+58', flag: '🇻🇪', mask: '###-###-####', placeholder: '412-123-4567' },
-    { code: 'PT', name: 'Portugal', dial: '+351', flag: '🇵🇹', mask: '### ### ###', placeholder: '912 345 678' },
-    { code: 'ES', name: 'Espanha', dial: '+34', flag: '🇪🇸', mask: '### ## ## ##', placeholder: '612 34 56 78' },
-    { code: 'FR', name: 'França', dial: '+33', flag: '🇫🇷', mask: '## ## ## ## ##', placeholder: '06 12 34 56 78' },
-    { code: 'DE', name: 'Alemanha', dial: '+49', flag: '🇩🇪', mask: '#### #######', placeholder: '1579 1234567' },
-    { code: 'IT', name: 'Itália', dial: '+39', flag: '🇮🇹', mask: '### ### ####', placeholder: '320 123 4567' },
-    { code: 'GB', name: 'Reino Unido', dial: '+44', flag: '🇬🇧', mask: '##### ######', placeholder: '07123 456789' },
-    { code: 'CA', name: 'Canadá', dial: '+1', flag: '🇨🇦', mask: '(###) ###-####', placeholder: '(416) 123-4567' },
-]
-
-// Função para aplicar máscara no telefone
-const applyPhoneMask = (value: string, mask: string) => {
-    const cleanValue = value.replace(/\D/g, '')
-    let maskedValue = ''
-    let valueIndex = 0
-
-    for (let i = 0; i < mask.length && valueIndex < cleanValue.length; i++) {
-        if (mask[i] === '#') {
-            maskedValue += cleanValue[valueIndex]
-            valueIndex++
-        } else {
-            maskedValue += mask[i]
-        }
-    }
-
-    return maskedValue
-}
-
 export default function Contact() {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        message: "",
-    })
-
-    const [selectedCountry, setSelectedCountry] = useState(countries[0]) // Brasil como padrão
-    const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false)
-
-    const [isSubmitted, setIsSubmitted] = useState(false)
-    const [isSubmitting, setIsSubmitting] = useState(false)
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault()
-        setIsSubmitting(true)
-
-        try {
-            const form = new FormData()
-            form.append('name', formData.name)
-            form.append('email', formData.email)
-            form.append('phone', `${selectedCountry.dial} ${formData.phone}`)
-            form.append('company', formData.company || 'Não informado')
-            form.append('message', formData.message)
-            form.append('_subject', `Nova mensagem de ${formData.name} - Portfolio`)
-            form.append('_captcha', 'false')
-            form.append('_template', 'table')
-
-            const response = await fetch('https://formsubmit.co/daf2b75e64fb846c63068f320fa8dc94', {
-                method: 'POST',
-                body: form
-            })
-
-            if (response.ok) {
-                setIsSubmitted(true)
-                // Reset form data
-                setFormData({
-                    name: "",
-                    email: "",
-                    phone: "",
-                    company: "",
-                    message: "",
-                })
-            } else {
-                throw new Error('Erro ao enviar formulário')
-            }
-        } catch (error) {
-            console.error('Erro:', error)
-            alert('Erro ao enviar mensagem. Tente novamente.')
-        } finally {
-            setIsSubmitting(false)
-        }
-    }
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        const { name, value } = e.target
-
-        if (name === 'phone') {
-            // Aplica a máscara específica do país selecionado
-            const maskedValue = applyPhoneMask(value, selectedCountry.mask)
-            setFormData({
-                ...formData,
-                [name]: maskedValue,
-            })
-        } else {
-            setFormData({
-                ...formData,
-                [name]: value,
-            })
-        }
-    }
+    const contacts = [
+        {
+            title: "LinkedIn",
+            institution: "Conecte-se comigo",
+            period: "linkedin.com/in/anamoratelli",
+            link: "https://www.linkedin.com/in/anamoratelli",
+            icon: (
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+            ),
+        },
+        {
+            title: "GitHub",
+            institution: "Veja meus projetos",
+            period: "github.com/Ana-Laura-Moratelli",
+            link: "https://github.com/Ana-Laura-Moratelli",
+            icon: (
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+            ),
+        },
+        {
+            title: "E-mail",
+            institution: "Entre em contato",
+            period: "analauramoratelli203@gmail.com",
+            link: "mailto:analauramoratelli203@gmail.com",
+            icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="m20 8l-8 5l-8-5V6l8 5l8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2" />
+                </svg>
+            ),
+        },
+    ]
 
     return (
-        <section id="contact" className="contact">
+        <section id="contact" className="education">
             <div className="container">
                 <div className="section-header">
                     <h2 className="section-title">Contatos</h2>
-                    <p className="section-subtitle">Vamos conversar sobre oportunidades e projetos!</p>
+                    <p className="section-subtitle">
+                        Vamos conversar sobre oportunidades e projetos
+                    </p>
                 </div>
 
-                <div className="contact-form-container">
-                    {!isSubmitted ? (
-                        <form onSubmit={handleSubmit} className="contact-form">
-                            {/* Todo o conteúdo do formulário existente permanece igual */}
-                            <div className="form-row">
-                                <div className="form-group">
-                                    <label htmlFor="name">Nome *</label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        name="name"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        required
-                                        placeholder="Seu nome"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="email">E-mail *</label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        required
-                                        placeholder="seu@email.com"
-                                    />
-                                </div>
+                <div className="education-grid">
+                    {contacts.map((contact, index) => (
+                        <a
+                            key={index}
+                            href={contact.link}
+                            target={contact.title !== "E-mail" ? "_blank" : undefined}
+                            rel={contact.title !== "E-mail" ? "noopener noreferrer" : undefined}
+                            className="education-card"
+                        >
+                            <div className="education-icon">
+                                {contact.icon}
                             </div>
 
-                            <div className="form-row">
-                                <div className="form-group">
-                                    <label htmlFor="phone">Telefone *</label>
-                                    <div className="phone-input-container">
-                                        <div className="country-selector">
-                                            <button
-                                                type="button"
-                                                className="country-button"
-                                                onClick={() => setIsCountryDropdownOpen(!isCountryDropdownOpen)}
-                                            >
-                                                <span className="country-info">
-                                                    <span className="country-name">{selectedCountry.name}</span>
-                                                    <span className="country-dial">{selectedCountry.dial}</span>
-                                                </span>
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                                    <polyline points="6,9 12,15 18,9"></polyline>
-                                                </svg>
-                                            </button>
-                                            {isCountryDropdownOpen && (
-                                                <div className="country-dropdown">
-                                                    {countries.map((country) => (
-                                                        <button
-                                                            key={country.code}
-                                                            type="button"
-                                                            className="country-option"
-                                                            onClick={() => {
-                                                                setSelectedCountry(country)
-                                                                setIsCountryDropdownOpen(false)
-                                                                // Limpa o campo de telefone ao trocar país
-                                                                setFormData({
-                                                                    ...formData,
-                                                                    phone: ""
-                                                                })
-                                                            }}
-                                                        >
-                                                            <div className="country-details">
-                                                                <span className="country-name">{country.name}</span>
-                                                                <span className="country-dial">{country.dial}</span>
-                                                            </div>
-                                                        </button>
-                                                    ))}
-                                                </div>
-                                            )}
-                                        </div>
-                                        <input
-                                            type="tel"
-                                            id="phone"
-                                            name="phone"
-                                            value={formData.phone}
-                                            onChange={handleChange}
-                                            required
-                                            placeholder={selectedCountry.placeholder}
-                                            className="phone-input"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="company">Empresa</label>
-                                    <input
-                                        type="text"
-                                        id="company"
-                                        name="company"
-                                        value={formData.company}
-                                        onChange={handleChange}
-                                        placeholder="Nome da sua empresa"
-                                    />
-                                </div>
-                            </div>
+                            <div className="education-content">
+                                <h3 className="education-title">
+                                    {contact.title}
+                                </h3>
 
-                            <div className="form-group">
-                                <label htmlFor="message">Mensagem</label>
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    rows={4}
-                                    placeholder="Conte-nos mais sobre seu projeto e objetivos..."
-                                />
-                            </div>
+                                <p className="education-institution">
+                                    {contact.institution}
+                                </p>
 
-                            <button type="submit" className="form-submit" disabled={isSubmitting}>
-                                <span>{isSubmitting ? 'Enviando...' : 'Enviar mensagem'}</span>
-                                {!isSubmitting && (
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M5 12h14M12 5l7 7-7 7" />
-                                    </svg>
-                                )}
-                            </button>
-                        </form>
-                    ) : (
-                        <div className="success-message">
-                            <div className="success-icon">
-                                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                    <polyline points="22,4 12,14.01 9,11.01" />
-                                </svg>
+                                <span className="education-period">
+                                    {contact.period}
+                                </span>
                             </div>
-                            <h3 className="success-title">Mensagem Enviada com Sucesso! 🎉</h3>
-                            <p className="success-description">
-                                Obrigada pelo seu interesse! Entrarei em contato em até 24 horas.
-                            </p>
-                            <button
-                                onClick={() => setIsSubmitted(false)}
-                                className="btn-primary"
-                            >
-                                Enviar nova mensagem
-                            </button>
-
-                        </div>
-                    )}
+                        </a>
+                    ))}
                 </div>
             </div>
         </section>
