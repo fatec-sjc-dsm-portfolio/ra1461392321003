@@ -10,7 +10,7 @@ export default function About() {
         <div className="about-content">
           <div className="about-text">
             <p>
-              Sou Desenvolvedora Full Stack, apaixonada por criar experiências digitais modernas, funcionais e intuitivas. Tenho 20 anos e estou sempre em busca de novos desafios, aprendizados e oportunidades para evoluir profissionalmente na área de tecnologia.
+              Sou Desenvolvedora Full Stack, apaixonada por criar experiências digitais modernas, funcionais e intuitivas. Tenho 21 anos e estou sempre em busca de novos desafios, aprendizados e oportunidades para evoluir profissionalmente na área de tecnologia.
             </p>
             <p>
               Minha trajetória começou pela eletrônica, experiência que despertou meu interesse por lógica, resolução de problemas e inovação. Essa base técnica contribuiu diretamente para minha atuação no desenvolvimento de software, permitindo unir criatividade, análise e visão estratégica na construção de soluções.

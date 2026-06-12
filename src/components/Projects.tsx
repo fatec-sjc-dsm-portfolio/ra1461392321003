@@ -166,7 +166,7 @@ export default function Projects() {
             technologies: ["Figma", "TypeScript", "Tailwind CSS", "Next JS", "Leaflet", "Python", "FastAPI", "PostgreSQL", "PostGIS", "Docker"],
             image: visionaImage,
             category: "Sistema",
-            status: "Andamento",
+            status: "Concluído",
             type: "api",
             github: "https://github.com/Ana-Laura-Moratelli/API-2026-6SEM",
         },
@@ -227,7 +227,7 @@ export default function Projects() {
             description:
                 "Site institucional desenvolvido para empresa especializada em assistência técnica e soluções em tecnologia.",
             fullDescription:
-                "O projeto Micro Assist consiste no desenvolvimento do site institucional da empresa Micro Assist, especializada em assistência técnica, manutenção e soluções em tecnologia.\n\nO site foi desenvolvido com foco em criar uma presença digital moderna, profissional e estratégica, permitindo apresentar os serviços da empresa de forma clara e organizada. A plataforma destaca os serviços oferecidos, informações da empresa, canais de contato e diferenciais do atendimento.\n\nAlém do foco visual e responsivo, o projeto foi pensado para fortalecer a credibilidade da marca, facilitar o contato com clientes e gerar novos atendimentos por meio de uma navegação intuitiva e voltada para conversão.",
+                "O projeto Micro Assist consiste no desenvolvimento do site institucional da empresa Micro Assist, especializada em assistência técnica, manutenção e soluções em tecnologia.\n\nO site foi desenvolvido com foco em criar uma presença digital moderna, profissional e estratégica, permitindo apresentar os serviços da empresa de forma clara e organizada.\n\nAlém do foco visual e responsivo, o projeto foi pensado para fortalecer a credibilidade da marca, facilitar o contato com clientes e gerar novos atendimentos por meio de uma navegação intuitiva e voltada para conversão.",
             technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
             image: microassistImage,
             category: "Site",
@@ -299,7 +299,7 @@ export default function Projects() {
                     >
                         Todos
                     </button>
-                     <button
+                    <button
                         className={`tab-button ${activeTab === 'api' ? 'active' : ''}`}
                         onClick={() => setActiveTab('api')}
                     >
