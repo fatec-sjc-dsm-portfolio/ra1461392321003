@@ -16,7 +16,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "experience", "projects", "skills", "education", "contact"]
+      const sections = ["home", "about", "experience", "projects", "skills", "education", "hobbies", "contact"]
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -143,7 +143,7 @@ export default function Home() {
     }
 
     // Observe sections
-    const sections = document.querySelectorAll('.about, .experience, .projects, .skills, .education, .contact')
+    const sections = document.querySelectorAll('.about, .experience, .projects, .skills, .education, .hobbies, .contact')
     sections.forEach((section) => sectionObserver.observe(section))
 
     // Observe individual content elements for more granular control
@@ -159,7 +159,7 @@ export default function Home() {
     // Fallback: Force animations after 2 seconds for mobile compatibility
     const fallbackTimeout = setTimeout(() => {
       if (isMobile) {
-        const allSections = document.querySelectorAll('.about, .experience, .projects, .skills, .education, .contact')
+        const allSections = document.querySelectorAll('.about, .experience, .projects, .skills, .education, .hobbies, .contact')
         allSections.forEach((section) => {
           if (!section.classList.contains('section-animate')) {
             section.classList.add('section-animate')

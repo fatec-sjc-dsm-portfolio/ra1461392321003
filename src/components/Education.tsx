@@ -3,7 +3,7 @@ export default function Education() {
     {
       title: "Desenvolvimento de Software Multiplataforma",
       institution: "Fatec Prof. Jessen Vidal",
-      period: "Conclusão em agosto de 2026",
+      period: "Concluído em agosto de 2026",
       icon: "🎓",
     },
     {

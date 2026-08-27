@@ -1,3 +1,5 @@
+import n8nIcon from '../assets/n8n.svg';
+
 export default function Skills() {
     const hardSkills = [
         // Front-end
@@ -33,7 +35,7 @@ export default function Skills() {
         { name: "Firebase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" },
 
         // Automation
-        { name: "N8N", icon: "https://docs.n8n.io/_images/n8n-docs-icon.svg" },
+        { name: "N8N", icon: n8nIcon },
         { name: "Zapier", icon: "https://cdn.worldvectorlogo.com/logos/zapier.svg" },
     ]
 

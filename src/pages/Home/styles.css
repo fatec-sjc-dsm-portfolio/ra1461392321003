@@ -1631,6 +1631,10 @@ p {
     animation-delay: 0.8s;
 }
 
+.nav-link:nth-child(7) {
+    animation-delay: 0.9s;
+}
+
 .btn-primary:hover,
 .btn-secondary:hover {
     animation: pulse 0.3s ease;
